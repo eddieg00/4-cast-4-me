@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  /*container to center the dashboard */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /*the navigation */
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /*navigation links */
+  .navigation a {
+    text-decoration: none;
+    color: #333;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .navigation a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+ 
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /*weather cards */
+  .weather-card {
+    width: calc(33.33% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  /*weather card title */
+  .weather-card h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /*weather card description */
+  .weather-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  /*weather card temperature */
+  .weather-card .temperature {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /*weather card icon */
+  .weather-card .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
