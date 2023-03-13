@@ -19,7 +19,7 @@ function retrieveInfo(city){
     {
     html += `<div class="card" style="width: 18rem;">
     <p>${apiData.list[i].weather[0].description}
-    <img src="https://openweathermap.org/img/wn/${apiData.list[i].weather.icon}@2x.png" class="card-img-top" alt="..."></p>
+    <img src="https://openweathermap.org/img/wn/${apiData.list[i].weather[0].icon}@2x.png" class="card-img-top" alt="..."></p>
     <div class="card-body">
       <h5 class="card-title">${apiData.list[i].dt_txt}</h5>
       <p class="card-text">Temp: ${apiData.list[i].main.temp}.</p>
@@ -32,4 +32,4 @@ function retrieveInfo(city){
     document.getElementById("forecast").innerHTML = html
 
   })
-}
+} 
