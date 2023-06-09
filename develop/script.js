@@ -35,6 +35,12 @@ function retrieveCurrentWeather(city) {
       });
 }
 
+function formatDateString(dateString) {
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const date = new Date(dateString);
+  return date.toLocaleDateString(undefined, options);
+}
+
 
 function retrieveInfo(city){
   var URL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API}&units=imperial`
@@ -53,7 +59,7 @@ function retrieveInfo(city){
       <p class="card-text">Temp: ${apiData.list[i].main.temp}.</p>
       <p class="card-text">Humidity: ${apiData.list[i].main.humidity}.</p>
       <p class="card-text">WindSpeed: ${apiData.list[i].wind.speed}.</p>
- 
+      
     </div>
   </div>`
     }
