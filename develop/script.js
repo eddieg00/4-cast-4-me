@@ -3,10 +3,37 @@ var API = "a99dd08de39acd515bcc2062fdb6aa30"
 var savedCities = []; // Array to store searched cities
 
 search.addEventListener("submit",function(event){
-    event.preventDefault()
-    var city = document.getElementById("city-input").value
-    retrieveInfo(city)
+    event.preventDefault();
+    var city = document.getElementById("city-input").value;
+    retrieveCurrentWeather(city);
+    retrieveInfo(city);
 })
+
+function retrieveCurrentWeather(city) {
+  var URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API}&units=imperial`;
+  fetch(URL)
+      .then(response => response.json())
+      .then(apiData => {
+          console.log(apiData);
+          var currentWeather = document.getElementById("current-weather");
+          currentWeather.innerHTML = ""; // Clear previous data
+
+          var html = `<div class="card" style="width: 18rem;">
+              <p>${apiData.weather[0].description}</p>
+              <img src="https://openweathermap.org/img/wn/${apiData.weather[0].icon}.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">${apiData.name}</h5>
+                  <p class="card-text">Temperature: ${apiData.main.temp}°F</p>
+                  <p class="card-text">Humidity: ${apiData.main.humidity}%</p>
+                  <p class="card-text">Wind Speed: ${apiData.wind.speed} mph</p>
+              </div>
+          </div>`;
+          currentWeather.innerHTML = html;
+      })
+      .catch(error => {
+          console.log("Error fetching current weather data:", error);
+      });
+}
 
 
 function retrieveInfo(city){
